@@ -174,7 +174,7 @@ public class UiAutomationTrainingBasicTest extends TestBase {
 	 * Verify Login Invalid Scenario
 	 */
 	@Test(groups = { "test", "regression"}, priority = 7, dataProvider = "MultipleUserDetails", dataProviderClass = UserDetailsDataProvider.class)
-	public void testVerifyLogin(String username, String password) {
+	public void testVerifyLogin(String userName, String password) {
 		// Verify HomePage is displayed
 		softAssert = new SoftAssert();
 		softAssert.assertTrue(HomePage.isHomePageDisplayed(),"Home Page is not Displayed");
@@ -183,7 +183,9 @@ public class UiAutomationTrainingBasicTest extends TestBase {
 		// Verify Login Page Displayed
 		softAssert.assertTrue(LoginPage.isLoginPageDisplayed(),"Login Page is not Displayed");
 		// Set Invalid Username and Password
-		LoginPage.setUsernamePassword("Constants.USER_NAME", "Constants.PASSWORD");
+		LoginPage.setUsername(userName);
+		LoginPage.setPassword(password);
+//		LoginPage.setUsernamePassword("Constants.USER_NAME", "Constants.PASSWORD");
 		// Click Submit
 		LoginPage.clickSubmit();
 		// Verify Login Alert Displayed

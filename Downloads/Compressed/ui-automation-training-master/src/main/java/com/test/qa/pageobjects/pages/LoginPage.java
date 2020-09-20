@@ -38,4 +38,12 @@ public class LoginPage extends PageBase {
         waiTillVisible(flashMessage,30);
         return  getDriver().findElement(flashMessage).getText();
     }
+
+    public static void setUsername(String userName) {
+        getDriver().findElement(usernameText).sendKeys(userName);
+    }
+
+    public static void setPassword(String password) {
+        getDriver().findElement(passwordText).sendKeys((password));
+    }
 }
